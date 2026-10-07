@@ -6,15 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Vrutii! 💖</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Quicksand:wght@500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Quicksand', sans-serif;
-            background-color: #721422;
+            background: linear-gradient(135deg, #3b071a, #6b112c, #4a0d21);
             color: #fff;
             overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Magical Atmospheric Background with your image + vibrant multi-stop glowing overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(74, 13, 33, 0.85), rgba(118, 20, 52, 0.9), rgba(40, 5, 15, 0.95)), url('images/22.jpeg') no-repeat center center/cover;
+            filter: blur(7px);
+            transform: scale(1.06);
+            z-index: -2;
+        }
+
+        /* Vibrant Multi-Color Romantic Aurora Glow */
+        .bg-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 20%, rgba(255, 105, 180, 0.25) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 80%, rgba(238, 130, 238, 0.2) 0%, transparent 45%),
+                        radial-gradient(circle at center, rgba(80, 10, 25, 0.8) 100%);
+            z-index: -1;
+            pointer-events: none;
         }
 
         .font-handwriting {
@@ -22,53 +50,27 @@
         }
 
         @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-8px) rotate(2deg);
-            }
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(3deg); }
         }
 
-        @keyframes pulse-slow {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(255,105,180,0.6)); }
+            50% { transform: scale(1.04); filter: drop-shadow(0 0 25px rgba(255,182,193,0.9)); }
         }
 
         @keyframes shake {
-
-            0%,
-            100% {
-                transform: translateX(0);
-            }
-
-            20%,
-            60% {
-                transform: translateX(-8px);
-            }
-
-            40%,
-            80% {
-                transform: translateX(8px);
-            }
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-8px); }
+            40%, 80% { transform: translateX(8px); }
         }
 
         .animate-float {
-            animation: float 3s ease-in-out infinite;
+            animation: float 3.5s ease-in-out infinite;
         }
 
-        .animate-pulse-slow {
-            animation: pulse-slow 2s ease-in-out infinite;
+        .animate-pulse-glow {
+            animation: pulse-glow 2.5s ease-in-out infinite;
         }
 
         .animate-shake {
@@ -79,162 +81,167 @@
             background: #fff;
             color: #333;
             padding: 8px 8px 24px 8px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, z-index 0.3s ease;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), z-index 0.3s ease, box-shadow 0.3s ease;
         }
 
         .polaroid:hover {
-            transform: scale(1.05) rotate(0deg) !important;
+            transform: scale(1.08) rotate(0deg) !important;
             z-index: 50;
+            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.4);
+        }
+
+        /* Enhanced Luxury Glassmorphism Container */
+        .glass-card {
+            background: linear-gradient(135deg, rgba(110, 20, 48, 0.7), rgba(70, 10, 30, 0.82));
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1.5px solid rgba(255, 182, 193, 0.4);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Custom Gradients for Buttons */
+        .btn-gradient {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            transition: all 0.3s ease;
+        }
+        .btn-gradient:hover {
+            background: linear-gradient(135deg, #ff5270, #ff65a3);
+            box-shadow: 0 8px 20px rgba(255, 117, 140, 0.5);
         }
     </style>
 </head>
 
-<body
-    class="min-h-screen flex flex-col items-center justify-center relative selection:bg-pink-300 selection:text-pink-900">
+<body class="min-h-screen flex flex-col items-center justify-center relative selection:bg-pink-300 selection:text-pink-900">
 
+    <div class="bg-glow"></div>
     <div id="particles" class="absolute inset-0 pointer-events-none overflow-hidden z-0"></div>
 
     <!-- MAIN CONTAINER -->
-    <main
-        class="relative z-10 w-full max-w-4xl min-h-screen flex flex-col items-center justify-between p-4 sm:p-6 bg-[#721422] shadow-2xl mx-auto">
+    <main class="relative z-10 w-full max-w-4xl min-h-screen flex flex-col items-center justify-between p-4 sm:p-6 glass-card rounded-3xl my-auto shadow-2xl mx-auto">
 
         <!-- ================= SCREEN 1: LANDING / INTRO ================= -->
-        <section id="screen-intro"
-            class="w-full max-w-md flex-1 flex flex-col items-center justify-between text-center py-4">
-
-            <!-- Top Cute Characters -->
-            <div class="flex items-center justify-center space-x-2 pt-2 animate-float">
-                <svg class="w-20 h-20 drop-shadow-md" viewBox="0 0 100 100" fill="none">
-                    <circle cx="50" cy="55" r="30" fill="#d49b6d" />
-                    <circle cx="28" cy="38" r="12" fill="#d49b6d" />
-                    <circle cx="72" cy="38" r="12" fill="#d49b6d" />
+        <section id="screen-intro" class="w-full max-w-md flex-1 flex flex-col items-center justify-between text-center py-4">
+            
+            <!-- Cute Cartoons Header with Aura Glow -->
+            <div class="flex items-center justify-center space-x-3 pt-2 animate-float animate-pulse-glow">
+                <svg class="w-20 h-20 drop-shadow-lg" viewBox="0 0 100 100" fill="none">
+                    <circle cx="50" cy="55" r="30" fill="#e5ad77" />
+                    <circle cx="28" cy="38" r="12" fill="#e5ad77" />
+                    <circle cx="72" cy="38" r="12" fill="#e5ad77" />
                     <circle cx="42" cy="50" r="3" fill="#222" />
                     <circle cx="58" cy="50" r="3" fill="#222" />
                     <ellipse cx="50" cy="56" rx="5" ry="3" fill="#222" />
-                    <circle cx="37" cy="55" r="6" fill="#ffb6c1" opacity="0.6" />
-                    <circle cx="63" cy="55" r="6" fill="#ffb6c1" opacity="0.6" />
+                    <circle cx="37" cy="55" r="6" fill="#ff99b3" opacity="0.7" />
+                    <circle cx="63" cy="55" r="6" fill="#ff99b3" opacity="0.7" />
                 </svg>
-                <svg class="w-20 h-20 drop-shadow-md" viewBox="0 0 100 100" fill="none">
-                    <circle cx="50" cy="55" r="30" fill="#fff5ee" />
-                    <circle cx="28" cy="38" r="12" fill="#333" />
-                    <circle cx="72" cy="38" r="12" fill="#333" />
+                <div class="text-3xl animate-bounce">💖</div>
+                <svg class="w-20 h-20 drop-shadow-lg" viewBox="0 0 100 100" fill="none">
+                    <circle cx="50" cy="55" r="30" fill="#fffaf5" />
+                    <circle cx="28" cy="38" r="12" fill="#444" />
+                    <circle cx="72" cy="38" r="12" fill="#444" />
                     <circle cx="42" cy="50" r="3" fill="#222" />
                     <circle cx="58" cy="50" r="3" fill="#222" />
                     <ellipse cx="50" cy="56" rx="5" ry="3" fill="#222" />
-                    <circle cx="37" cy="55" r="6" fill="#ffb6c1" opacity="0.6" />
-                    <circle cx="63" cy="55" r="6" fill="#ffb6c1" opacity="0.6" />
+                    <circle cx="37" cy="55" r="6" fill="#ff99b3" opacity="0.7" />
+                    <circle cx="63" cy="55" r="6" fill="#ff99b3" opacity="0.7" />
                 </svg>
             </div>
 
             <div class="space-y-3">
-                <span
-                    class="bg-[#8b2332] text-pink-200 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-widest border border-pink-400/35">Bestie
-                    Edition • Luchii 💖</span>
-                <h1 class="text-4xl font-bold tracking-wide font-handwriting text-pink-100">Happy Birthday Vrutii! ✨
+                <span class="bg-gradient-to-r from-pink-600 to-rose-500 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest border border-pink-300/50 shadow-md">
+                    ✨ Bestie Edition • Luchii 💖
+                </span>
+                <h1 class="text-4xl font-extrabold tracking-wide font-handwriting text-transparent bg-clip-text bg-gradient-to-r from-pink-200 via-rose-100 to-amber-200 drop-shadow-md">
+                    Happy Birthday Vrutii! ✨
                 </h1>
-                <p
-                    class="text-pink-200/90 text-sm max-w-xs mx-auto font-medium bg-[#8b2332]/50 p-3 rounded-xl border border-pink-400/20">
+                <p class="text-pink-100 text-sm max-w-xs mx-auto font-medium bg-black/30 p-3.5 rounded-2xl border border-pink-400/30 shadow-inner">
                     My Home My Luchiii A Cutiuu Gift From Your Vaidu 🥰
                 </p>
             </div>
 
-            <button onclick="goToScreen('screen-quiz')"
-                class="w-full py-4 bg-white text-[#721422] font-bold rounded-2xl shadow-lg hover:bg-pink-100 transition transform active:scale-95 flex items-center justify-center space-x-2 text-lg">
+            <button onclick="goToScreen('screen-quiz')" class="w-full py-4 btn-gradient text-white font-extrabold rounded-2xl shadow-xl hover:opacity-95 transition transform active:scale-95 flex items-center justify-center space-x-2 text-lg border border-white/30">
                 <span>Open Surprise 💌</span>
             </button>
         </section>
 
         <!-- ================= SCREEN 2: QUIZ SCREEN ================= -->
-        <section id="screen-quiz"
-            class="w-full max-w-md flex-1 flex flex-col items-center justify-between text-center py-4 hidden">
+        <section id="screen-quiz" class="w-full max-w-md flex-1 flex flex-col items-center justify-between text-center py-4 hidden">
             <!-- Cute Cartoons Header -->
-            <div class="flex items-center justify-center space-x-2 py-1 animate-pulse-slow">
+            <div class="flex items-center justify-center space-x-2 py-1 animate-float">
                 <svg class="w-16 h-16" viewBox="0 0 100 100" fill="none">
-                    <circle cx="50" cy="55" r="30" fill="#d49b6d" />
-                    <circle cx="28" cy="38" r="12" fill="#d49b6d" />
-                    <circle cx="72" cy="38" r="12" fill="#d49b6d" />
+                    <circle cx="50" cy="55" r="30" fill="#e5ad77" />
+                    <circle cx="28" cy="38" r="12" fill="#e5ad77" />
+                    <circle cx="72" cy="38" r="12" fill="#e5ad77" />
                     <circle cx="42" cy="50" r="3" fill="#222" />
                     <circle cx="58" cy="50" r="3" fill="#222" />
                     <ellipse cx="50" cy="56" rx="5" ry="3" fill="#222" />
                 </svg>
-                <span class="text-xs font-handwriting text-pink-200">Luchii & Vaiduu 💕</span>
+                <span class="text-xs font-handwriting text-pink-200 font-bold">Luchii & Vaiduu 💕</span>
             </div>
 
             <div class="space-y-2 w-full">
                 <h2 class="text-xl font-bold font-handwriting text-pink-100">Quick Test For Luchii! 💭</h2>
-                <p
-                    class="text-lg font-bold text-white bg-[#8b2332]/80 py-2.5 px-4 rounded-xl border border-pink-400/20">
-                    What are you of mine?</p>
+                <p class="text-base font-bold text-white bg-black/35 py-2.5 px-4 rounded-xl border border-pink-400/30 shadow-sm">What are you of mine?</p>
             </div>
 
             <div class="w-full space-y-2.5 my-2">
-                <button onclick="handleQuizAnswer(false)"
-                    class="w-full py-3 px-4 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl font-medium text-left transition text-sm flex items-center justify-between">
+                <button onclick="handleQuizAnswer(false)" class="w-full py-3 px-4 bg-white/10 hover:bg-white/25 border border-white/20 rounded-xl font-medium text-left transition text-sm flex items-center justify-between shadow-sm">
                     <span>A) My Luchiiii</span>
                     <span class="text-xs text-pink-300">Tap</span>
                 </button>
-                <button onclick="handleQuizAnswer(false)"
-                    class="w-full py-3 px-4 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl font-medium text-left transition text-sm flex items-center justify-between">
+                <button onclick="handleQuizAnswer(false)" class="w-full py-3 px-4 bg-white/10 hover:bg-white/25 border border-white/20 rounded-xl font-medium text-left transition text-sm flex items-center justify-between shadow-sm">
                     <span>B) My Swetty</span>
                     <span class="text-xs text-pink-300">Tap</span>
                 </button>
-                <button onclick="handleQuizAnswer(false)"
-                    class="w-full py-3 px-4 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl font-medium text-left transition text-sm flex items-center justify-between">
+                <button onclick="handleQuizAnswer(false)" class="w-full py-3 px-4 bg-white/10 hover:bg-white/25 border border-white/20 rounded-xl font-medium text-left transition text-sm flex items-center justify-between shadow-sm">
                     <span>C) My Baby luchuuu</span>
                     <span class="text-xs text-pink-300">Tap</span>
                 </button>
-                <button onclick="handleQuizAnswer(true)"
-                    class="w-full py-3 px-4 bg-pink-600/40 hover:bg-pink-600/60 border border-pink-300/40 rounded-xl font-semibold text-left transition text-sm flex items-center justify-between shadow-md">
+                <button onclick="handleQuizAnswer(true)" class="w-full py-3 px-4 bg-gradient-to-r from-pink-600/70 to-rose-600/70 hover:opacity-90 border border-pink-300/60 rounded-xl font-semibold text-left transition text-sm flex items-center justify-between shadow-md">
                     <span>D) Mine Lablabyu Sweetu Rasmali luchu luchu Baby 💖</span>
-                    <span class="text-xs text-yellow-200">Correct!</span>
+                    <span class="text-xs text-yellow-200 font-bold">Correct!</span>
                 </button>
             </div>
-
-            <div class="text-[11px] text-pink-200/70">Vrutii's Special Quiz</div>
+            
+            <div class="text-[11px] text-pink-200/80 font-medium">Vrutii's Special Quiz</div>
         </section>
 
         <!-- ================= SCREEN 2B: ERROR FRAME ================= -->
-        <section id="screen-error"
-            class="w-full max-w-md flex-1 flex flex-col items-center justify-center text-center space-y-6 hidden animate-shake">
-            <!-- Cute Cartoons Header -->
-            <div
-                class="w-28 h-28 bg-[#5d0e1b] rounded-full flex items-center justify-center border-4 border-white/20 shadow-xl">
+        <section id="screen-error" class="w-full max-w-md flex-1 flex flex-col items-center justify-center text-center space-y-6 hidden animate-shake">
+            <div class="w-28 h-28 bg-gradient-to-br from-rose-900 to-purple-950 rounded-full flex items-center justify-center border-4 border-pink-300/50 shadow-2xl">
                 <span class="text-5xl">😾</span>
             </div>
             <div class="space-y-2">
                 <h2 class="text-3xl font-bold font-handwriting text-pink-200">How dare you click that, Luchii! 😤</h2>
                 <p class="text-pink-300 text-sm">That is not your special option. Try again!</p>
             </div>
-            <button onclick="goToScreen('screen-quiz')"
-                class="w-full py-4 bg-white text-[#721422] font-bold rounded-2xl shadow-lg hover:bg-pink-100 transition transform active:scale-95">
+            <button onclick="goToScreen('screen-quiz')" class="w-full py-4 btn-gradient text-white font-bold rounded-2xl shadow-xl transition transform active:scale-95">
                 TRY AGAIN 💫
             </button>
         </section>
 
         <!-- ================= SCREEN 3: MENU / HUB ================= -->
-        <section id="screen-hub"
-            class="w-full max-w-md flex-1 flex flex-col items-center justify-between text-center py-4 hidden">
+        <section id="screen-hub" class="w-full max-w-md flex-1 flex flex-col items-center justify-between text-center py-4 hidden">
             <!-- Cute Cartoons Header -->
             <div class="flex items-center justify-center space-x-2 animate-float">
                 <svg class="w-14 h-14" viewBox="0 0 100 100" fill="none">
-                    <circle cx="50" cy="55" r="30" fill="#fff5ee" />
-                    <circle cx="28" cy="38" r="12" fill="#333" />
-                    <circle cx="72" cy="38" r="12" fill="#333" />
+                    <circle cx="50" cy="55" r="30" fill="#fffaf5" />
+                    <circle cx="28" cy="38" r="12" fill="#444" />
+                    <circle cx="72" cy="38" r="12" fill="#444" />
                     <circle cx="42" cy="50" r="3" fill="#222" />
                     <circle cx="58" cy="50" r="3" fill="#222" />
                     <ellipse cx="50" cy="56" rx="5" ry="3" fill="#222" />
                 </svg>
-                <span class="text-2xl">🎉</span>
+                <span class="text-2xl animate-bounce">🎉</span>
             </div>
             <div class="space-y-1">
-                <h2 class="text-2xl font-bold font-handwriting text-pink-100">Yay! Correct Answer Luchii! 💖</h2>
+                <h2 class="text-2xl font-bold font-handwriting text-pink-100 drop-shadow">Yay! Correct Answer Luchii! 💖</h2>
                 <p class="text-pink-200 text-xs">Vrutii & Vaiduu's secret birthday vault unlocked.</p>
             </div>
 
             <div class="w-full space-y-3 my-auto">
-                <button onclick="goToScreen('screen-letter')"
-                    class="w-full p-4 bg-gradient-to-r from-pink-500 to-rose-500 text-white rounded-2xl font-bold shadow-lg hover:opacity-95 transition flex items-center justify-between group">
+                <button onclick="goToScreen('screen-letter')" class="w-full p-4 btn-gradient text-white rounded-2xl font-bold shadow-xl transition flex items-center justify-between group border border-pink-300/40">
                     <div class="flex items-center space-x-3">
                         <span class="text-2xl">💌</span>
                         <div class="text-left">
@@ -242,75 +249,67 @@
                             <p class="text-xs text-pink-100 font-normal">A heartfelt note from Vaiduu</p>
                         </div>
                     </div>
-                    <span class="transform group-hover:translate-x-1 transition">→</span>
+                    <span class="transform group-hover:translate-x-1 transition font-bold text-lg">→</span>
                 </button>
 
-                <button onclick="goToScreen('screen-museum')"
-                    class="w-full p-4 bg-white text-[#721422] rounded-2xl font-bold shadow-lg hover:bg-pink-100 transition flex items-center justify-between group">
+                <button onclick="goToScreen('screen-museum')" class="w-full p-4 bg-white text-[#721422] rounded-2xl font-bold shadow-xl hover:bg-pink-100 transition flex items-center justify-between group">
                     <div class="flex items-center space-x-3">
                         <span class="text-2xl">📸</span>
                         <div class="text-left">
-                            <p class="text-sm">Museum of US (Photos & 10 HD Videos)</p>
+                            <p class="text-sm">Museum of US (25 Photos & 10 HD Videos)</p>
                             <p class="text-xs text-stone-500 font-normal">Polaroids & 1080p Video Vault</p>
                         </div>
                     </div>
-                    <span class="transform group-hover:translate-x-1 transition">→</span>
+                    <span class="transform group-hover:translate-x-1 transition font-bold text-lg">→</span>
                 </button>
             </div>
 
-            <div class="text-[10px] text-pink-200/60 uppercase tracking-widest">Vrutii's Special Day</div>
+            <div class="text-[10px] text-pink-200/70 uppercase tracking-widest font-semibold">Vrutii's Special Day</div>
         </section>
 
         <!-- ================= SCREEN 4: OPEN LETTER ================= -->
-        <section id="screen-letter"
-            class="w-full max-w-md flex-1 flex flex-col items-center justify-between py-2 hidden">
+        <section id="screen-letter" class="w-full max-w-md flex-1 flex flex-col items-center justify-between py-2 hidden">
             <!-- Cute Cartoons Header -->
             <div class="w-full flex justify-between items-center">
-                <button onclick="goToScreen('screen-hub')"
-                    class="bg-white/10 hover:bg-white/20 text-white px-4 py-1.5 rounded-full text-xs font-medium border border-white/20 transition">
+                <button onclick="goToScreen('screen-hub')" class="bg-white/10 hover:bg-white/25 text-white px-4 py-1.5 rounded-full text-xs font-medium border border-white/35 transition shadow-sm">
                     ← Back
                 </button>
                 <div class="flex items-center space-x-1">
                     <svg class="w-8 h-8" viewBox="0 0 100 100" fill="none">
-                        <circle cx="50" cy="55" r="30" fill="#d49b6d" />
-                        <circle cx="28" cy="38" r="12" fill="#d49b6d" />
-                        <circle cx="72" cy="38" r="12" fill="#d49b6d" />
+                        <circle cx="50" cy="55" r="30" fill="#e5ad77" />
+                        <circle cx="28" cy="38" r="12" fill="#e5ad77" />
+                        <circle cx="72" cy="38" r="12" fill="#e5ad77" />
                     </svg>
-                    <span class="text-xs tracking-widest uppercase text-pink-300">Letter for Vrutii (Luchii)</span>
+                    <span class="text-xs tracking-widest uppercase text-pink-200 font-semibold">Letter for Vrutii (Luchii)</span>
                 </div>
             </div>
 
             <!-- Letter Card -->
-            <div
-                class="w-full bg-[#FFF5EE] text-[#4a1520] p-5 rounded-2xl shadow-2xl relative my-2 border-2 border-pink-200">
-                <div
-                    class="absolute -top-3 right-6 bg-pink-500 text-white w-7 h-7 rounded-full flex items-center justify-center text-xs shadow-md">
-                    ♥</div>
+            <div class="w-full bg-[#FFF5EE] text-[#4a1520] p-5 rounded-2xl shadow-2xl relative my-2 border-2 border-pink-300">
+                <div class="absolute -top-3 right-6 bg-pink-500 text-white w-7 h-7 rounded-full flex items-center justify-center text-xs shadow-md">♥</div>
                 <h3 class="text-xl font-handwriting font-bold mb-2 text-[#721422]">Dearest Luchiiii,</h3>
                 <div class="space-y-2.5 text-xs font-medium leading-relaxed max-h-72 overflow-y-auto pr-1 text-left">
                     <p>Thank you for being the most incredible person I could ever wish for, My Home, My everything.</p>
-                    <p>I might not say this every single day, but my life is infinitely brighter, funnier and Happy With
-                        Only My Luchii 😍🤌</p>
+                    <p>I might not say this every single day, but my life is infinitely brighter, funnier and Happy With Only My Luchii 😍🤌</p>
                     <p>Wishing You Happiest Brithday And Be Happy And Always Proud On Yourself.</p>
-                    <p>I am Gifting You This Memorie of us to be with You For Lifetime. I gift You Me Your Vaidu For
-                        Lifetime With this Memorie Of Luchuu And Vaiduu ❤️🫂🫂</p>
+                    <p>I am Gifting You This Memorie of us to be with You For Lifetime. I gift You Me Your Vaidu For Lifetime With this Memorie Of Luchuu And Vaiduu ❤️🫂🫂</p>
                     <p class="pt-2 font-handwriting text-lg text-[#721422]">Yours forever & always Vaiduu ❤️✨</p>
                 </div>
             </div>
 
-            <div class="w-full text-center text-[11px] text-pink-200">Made with endless love for Vrutii 💖</div>
+            <div class="w-full text-center text-[11px] text-pink-200 font-medium">Made with endless love for Vrutii 💖</div>
         </section>
 
-        <!-- ================= SCREEN 5: MUSEUM OF US GALLERY (25 PHOTOS + 10 1080P VIDEOS) ================= -->
+        <!-- ================= SCREEN 5: MUSEUM OF US GALLERY ================= -->
         <section id="screen-museum" class="w-full flex-1 flex flex-col items-center justify-between py-2 hidden">
 
             <!-- Top Header with Cute Cartoons -->
             <div class="w-full flex items-center justify-between mb-1 px-1">
-                <div class="flex items-center space-x-1 animate-pulse-slow">
+                <div class="flex items-center space-x-1 animate-float">
                     <svg class="w-10 h-10" viewBox="0 0 100 100" fill="none">
-                        <circle cx="50" cy="55" r="30" fill="#d49b6d" />
-                        <circle cx="28" cy="38" r="12" fill="#d49b6d" />
-                        <circle cx="72" cy="38" r="12" fill="#d49b6d" />
+                        <circle cx="50" cy="55" r="30" fill="#e5ad77" />
+                        <circle cx="28" cy="38" r="12" fill="#e5ad77" />
+                        <circle cx="72" cy="38" r="12" fill="#e5ad77" />
                         <circle cx="42" cy="50" r="3" fill="#222" />
                         <circle cx="58" cy="50" r="3" fill="#222" />
                         <ellipse cx="50" cy="56" rx="5" ry="3" fill="#222" />
@@ -318,24 +317,21 @@
                     <span class="text-[11px] font-handwriting text-pink-200">Luchii & Vaiduu 🧸</span>
                 </div>
 
-                <h2 class="text-xl sm:text-2xl font-handwriting italic tracking-wider text-[#fce4ec] font-bold">museum
-                    <span class="text-white text-lg sm:text-xl font-sans not-italic font-light">of</span> US
+                <h2 class="text-xl sm:text-2xl font-handwriting italic tracking-wider text-[#fce4ec] font-bold drop-shadow">
+                    museum <span class="text-white text-lg sm:text-xl font-sans not-italic font-light">of</span> US
                 </h2>
 
-                <button onclick="goToScreen('screen-hub')"
-                    class="bg-white text-[#721422] hover:bg-pink-100 px-3 py-1 rounded-full text-xs font-bold shadow transition">
+                <button onclick="goToScreen('screen-hub')" class="bg-white text-[#721422] hover:bg-pink-100 px-3 py-1 rounded-full text-xs font-bold shadow transition">
                     back
                 </button>
             </div>
 
             <!-- TAB SWITCHER: Photos vs Videos -->
             <div class="w-full flex justify-center space-x-3 my-2">
-                <button id="btn-tab-photos" onclick="switchMuseumTab('photos')"
-                    class="px-5 py-1.5 bg-white text-[#721422] rounded-full font-bold text-xs shadow-md transition transform scale-105">
+                <button id="btn-tab-photos" onclick="switchMuseumTab('photos')" class="px-5 py-1.5 bg-white text-[#721422] rounded-full font-bold text-xs shadow-md transition transform scale-105">
                     📸 25 Photos
                 </button>
-                <button id="btn-tab-videos" onclick="switchMuseumTab('videos')"
-                    class="px-5 py-1.5 bg-[#8b2332] text-pink-200 border border-pink-400/40 rounded-full font-bold text-xs shadow hover:bg-pink-600/40 transition">
+                <button id="btn-tab-videos" onclick="switchMuseumTab('videos')" class="px-5 py-1.5 bg-rose-900/80 text-pink-200 border border-pink-400/40 rounded-full font-bold text-xs shadow hover:bg-rose-800 transition">
                     🎥 10 HD Videos (1080p)
                 </button>
             </div>
@@ -343,76 +339,57 @@
             <!-- ================= PHOTOS TAB VIEW ================= -->
             <div id="museum-photos-view" class="w-full flex-1 flex flex-col">
                 <!-- Action Bar -->
-                <div
-                    class="w-full flex flex-wrap items-center justify-between px-2 bg-[#8b2332]/60 py-2 rounded-xl border border-pink-400/20 text-xs my-1 gap-2">
-                    <span class="text-pink-200">✨ All 25 polaroid slots permanently saved! Click bulk tool to
-                        replace.</span>
-                    <button onclick="openBatchModal()"
-                        class="bg-pink-600 hover:bg-pink-500 text-white px-3 py-1 rounded font-bold shadow transition">Bulk
-                        Photo Upload 📦</button>
+                <div class="w-full flex flex-wrap items-center justify-between px-2 bg-black/40 py-2 rounded-xl border border-pink-400/30 text-xs my-1 gap-2 shadow-sm">
+                    <span class="text-pink-100 font-medium">✨ All 25 polaroids saved! Click bulk tool to replace.</span>
+                    <button onclick="openBatchModal()" class="btn-gradient text-white px-3 py-1 rounded font-bold shadow transition">Bulk Photo Upload 📦</button>
                 </div>
 
                 <!-- Scrollable Container with 5 Rows (25 Polaroids) -->
                 <div class="w-full flex-1 overflow-y-auto py-1 px-1 space-y-6 max-h-[60vh]">
                     <!-- ROW 1 (1-5) -->
                     <div class="relative pt-4">
-                        <div
-                            class="absolute -top-2 left-0 right-0 w-full h-6 pointer-events-none z-10 flex justify-center">
+                        <div class="absolute -top-2 left-0 right-0 w-full h-6 pointer-events-none z-10 flex justify-center">
                             <svg class="w-full h-6 overflow-visible" viewBox="0 0 600 30" preserveAspectRatio="none">
-                                <path d="M 0,5 Q 150,25 300,5 Q 450,25 600,5" fill="none" stroke="#fde047"
-                                    stroke-width="2" stroke-dasharray="5,5" opacity="0.8" />
+                                <path d="M 0,5 Q 150,25 300,5 Q 450,25 600,5" fill="none" stroke="#fde047" stroke-width="2" stroke-dasharray="5,5" opacity="0.8" />
                             </svg>
                         </div>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 pt-2" id="row-1-container">
-                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 pt-2" id="row-1-container"></div>
                     </div>
                     <!-- ROW 2 (6-10) -->
                     <div class="relative pt-4">
-                        <div
-                            class="absolute -top-2 left-0 right-0 w-full h-6 pointer-events-none z-10 flex justify-center">
+                        <div class="absolute -top-2 left-0 right-0 w-full h-6 pointer-events-none z-10 flex justify-center">
                             <svg class="w-full h-6 overflow-visible" viewBox="0 0 600 30" preserveAspectRatio="none">
-                                <path d="M 0,5 Q 150,25 300,5 Q 450,25 600,5" fill="none" stroke="#fde047"
-                                    stroke-width="2" stroke-dasharray="5,5" opacity="0.8" />
+                                <path d="M 0,5 Q 150,25 300,5 Q 450,25 600,5" fill="none" stroke="#fde047" stroke-width="2" stroke-dasharray="5,5" opacity="0.8" />
                             </svg>
                         </div>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 pt-2" id="row-2-container">
-                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 pt-2" id="row-2-container"></div>
                     </div>
                     <!-- ROW 3 (11-15) -->
                     <div class="relative pt-4">
-                        <div
-                            class="absolute -top-2 left-0 right-0 w-full h-6 pointer-events-none z-10 flex justify-center">
+                        <div class="absolute -top-2 left-0 right-0 w-full h-6 pointer-events-none z-10 flex justify-center">
                             <svg class="w-full h-6 overflow-visible" viewBox="0 0 600 30" preserveAspectRatio="none">
-                                <path d="M 0,5 Q 150,25 300,5 Q 450,25 600,5" fill="none" stroke="#fde047"
-                                    stroke-width="2" stroke-dasharray="5,5" opacity="0.8" />
+                                <path d="M 0,5 Q 150,25 300,5 Q 450,25 600,5" fill="none" stroke="#fde047" stroke-width="2" stroke-dasharray="5,5" opacity="0.8" />
                             </svg>
                         </div>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 pt-2" id="row-3-container">
-                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 pt-2" id="row-3-container"></div>
                     </div>
                     <!-- ROW 4 (16-20) -->
                     <div class="relative pt-4">
-                        <div
-                            class="absolute -top-2 left-0 right-0 w-full h-6 pointer-events-none z-10 flex justify-center">
+                        <div class="absolute -top-2 left-0 right-0 w-full h-6 pointer-events-none z-10 flex justify-center">
                             <svg class="w-full h-6 overflow-visible" viewBox="0 0 600 30" preserveAspectRatio="none">
-                                <path d="M 0,5 Q 150,25 300,5 Q 450,25 600,5" fill="none" stroke="#fde047"
-                                    stroke-width="2" stroke-dasharray="5,5" opacity="0.8" />
+                                <path d="M 0,5 Q 150,25 300,5 Q 450,25 600,5" fill="none" stroke="#fde047" stroke-width="2" stroke-dasharray="5,5" opacity="0.8" />
                             </svg>
                         </div>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 pt-2" id="row-4-container">
-                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 pt-2" id="row-4-container"></div>
                     </div>
                     <!-- ROW 5 (21-25) -->
                     <div class="relative pt-4">
-                        <div
-                            class="absolute -top-2 left-0 right-0 w-full h-6 pointer-events-none z-10 flex justify-center">
+                        <div class="absolute -top-2 left-0 right-0 w-full h-6 pointer-events-none z-10 flex justify-center">
                             <svg class="w-full h-6 overflow-visible" viewBox="0 0 600 30" preserveAspectRatio="none">
-                                <path d="M 0,5 Q 150,25 300,5 Q 450,25 600,5" fill="none" stroke="#fde047"
-                                    stroke-width="2" stroke-dasharray="5,5" opacity="0.8" />
+                                <path d="M 0,5 Q 150,25 300,5 Q 450,25 600,5" fill="none" stroke="#fde047" stroke-width="2" stroke-dasharray="5,5" opacity="0.8" />
                             </svg>
                         </div>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 pt-2" id="row-5-container">
-                        </div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 pt-2" id="row-5-container"></div>
                     </div>
                 </div>
             </div>
@@ -420,89 +397,68 @@
             <!-- ================= VIDEOS TAB VIEW (10 SLOTS 1080P) ================= -->
             <div id="museum-videos-view" class="w-full flex-1 flex flex-col hidden">
                 <!-- Video Action Bar -->
-                <div
-                    class="w-full flex flex-wrap items-center justify-between px-2 bg-[#8b2332]/60 py-2 rounded-xl border border-pink-400/20 text-xs my-1 gap-2">
-                    <span class="text-pink-200">🎥 10 HD 1080p Video Slots! Upload your precious video memories
-                        below.</span>
-                    <button onclick="openVideoBatchModal()"
-                        class="bg-pink-600 hover:bg-pink-500 text-white px-3 py-1 rounded font-bold shadow transition">Bulk
-                        Video Upload 📦</button>
+                <div class="w-full flex flex-wrap items-center justify-between px-2 bg-black/40 py-2 rounded-xl border border-pink-400/30 text-xs my-1 gap-2 shadow-sm">
+                    <span class="text-pink-100 font-medium">🎥 10 HD 1080p Video Slots! Upload your precious video memories below.</span>
+                    <button onclick="openVideoBatchModal()" class="btn-gradient text-white px-3 py-1 rounded font-bold shadow transition">Bulk Video Upload 📦</button>
                 </div>
 
                 <!-- Scrollable Video Grid container (10 slots) -->
-                <div class="w-full flex-1 overflow-y-auto py-2 px-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 max-h-[60vh]"
-                    id="video-grid-container">
+                <div class="w-full flex-1 overflow-y-auto py-2 px-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 max-h-[60vh]" id="video-grid-container">
                     <!-- Dynamically populated via JS -->
                 </div>
             </div>
 
-            <div class="text-[10px] text-pink-200/70 pt-1">Museum of US • Memories & Videos ✨</div>
+            <div class="text-[10px] text-pink-200/80 pt-1 font-semibold">Museum of US • Memories & Videos ✨</div>
         </section>
 
     </main>
 
     <!-- ================= BATCH PHOTO UPLOAD MODAL ================= -->
-    <div id="batch-modal" class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 hidden">
-        <div
-            class="bg-[#FFF5EE] text-[#4a1520] w-full max-w-md p-6 rounded-2xl shadow-2xl space-y-4 border-2 border-pink-300">
+    <div id="batch-modal" class="fixed inset-0 bg-black/75 z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-[#FFF5EE] text-[#4a1520] w-full max-w-md p-6 rounded-2xl shadow-2xl space-y-4 border-2 border-pink-300">
             <div class="flex justify-between items-center">
                 <h3 class="text-xl font-handwriting font-bold text-[#721422]">Bulk Photo Upload Tool 📦</h3>
-                <button onclick="closeBatchModal()"
-                    class="text-stone-500 hover:text-stone-800 font-bold text-lg">✕</button>
+                <button onclick="closeBatchModal()" class="text-stone-500 hover:text-stone-800 font-bold text-lg">✕</button>
             </div>
-            <p class="text-xs text-stone-600">Select multiple image files from your device at once to instantly fill and
-                permanently save into photo slots 1 through 25!</p>
+            <p class="text-xs text-stone-600">Select multiple image files from your device at once to instantly fill and permanently save into photo slots 1 through 25!</p>
 
-            <input type="file" id="batch-file-input" multiple accept="image/*"
-                class="w-full text-xs text-stone-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-pink-600 file:text-white hover:file:bg-pink-700 cursor-pointer">
+            <input type="file" id="batch-file-input" multiple accept="image/*" class="w-full text-xs text-stone-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-pink-600 file:text-white hover:file:bg-pink-700 cursor-pointer">
 
             <div id="batch-status" class="text-xs font-semibold text-center text-pink-700"></div>
 
             <div class="flex space-x-2 pt-2">
-                <button onclick="processBatchUpload()"
-                    class="flex-1 py-2.5 bg-[#721422] text-white font-bold rounded-xl text-xs hover:bg-[#8b2332] transition">Apply
-                    Images ✨</button>
-                <button onclick="closeBatchModal()"
-                    class="px-4 py-2.5 bg-stone-200 text-stone-700 font-bold rounded-xl text-xs hover:bg-stone-300 transition">Cancel</button>
+                <button onclick="processBatchUpload()" class="flex-1 py-2.5 btn-gradient text-white font-bold rounded-xl text-xs transition">Apply Images ✨</button>
+                <button onclick="closeBatchModal()" class="px-4 py-2.5 bg-stone-200 text-stone-700 font-bold rounded-xl text-xs hover:bg-stone-300 transition">Cancel</button>
             </div>
         </div>
     </div>
 
     <!-- ================= BATCH VIDEO UPLOAD MODAL ================= -->
-    <div id="video-batch-modal" class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 hidden">
-        <div
-            class="bg-[#FFF5EE] text-[#4a1520] w-full max-w-md p-6 rounded-2xl shadow-2xl space-y-4 border-2 border-pink-300">
+    <div id="video-batch-modal" class="fixed inset-0 bg-black/75 z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-[#FFF5EE] text-[#4a1520] w-full max-w-md p-6 rounded-2xl shadow-2xl space-y-4 border-2 border-pink-300">
             <div class="flex justify-between items-center">
                 <h3 class="text-xl font-handwriting font-bold text-[#721422]">Bulk Video Upload Tool 🎥 (1080p HD)</h3>
-                <button onclick="closeVideoBatchModal()"
-                    class="text-stone-500 hover:text-stone-800 font-bold text-lg">✕</button>
+                <button onclick="closeVideoBatchModal()" class="text-stone-500 hover:text-stone-800 font-bold text-lg">✕</button>
             </div>
-            <p class="text-xs text-stone-600">Select up to 10 video files (MP4/MOV) to fill your 1080p video memory
-                slots instantly!</p>
+            <p class="text-xs text-stone-600">Select up to 10 video files (MP4/MOV) to fill your 1080p video memory slots instantly!</p>
 
-            <input type="file" id="video-batch-file-input" multiple accept="video/*"
-                class="w-full text-xs text-stone-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-pink-600 file:text-white hover:file:bg-pink-700 cursor-pointer">
+            <input type="file" id="video-batch-file-input" multiple accept="video/*" class="w-full text-xs text-stone-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-pink-600 file:text-white hover:file:bg-pink-700 cursor-pointer">
 
             <div id="video-batch-status" class="text-xs font-semibold text-center text-pink-700"></div>
 
             <div class="flex space-x-2 pt-2">
-                <button onclick="processVideoBatchUpload()"
-                    class="flex-1 py-2.5 bg-[#721422] text-white font-bold rounded-xl text-xs hover:bg-[#8b2332] transition">Apply
-                    Videos 🎬</button>
-                <button onclick="closeVideoBatchModal()"
-                    class="px-4 py-2.5 bg-stone-200 text-stone-700 font-bold rounded-xl text-xs hover:bg-stone-300 transition">Cancel</button>
+                <button onclick="processVideoBatchUpload()" class="flex-1 py-2.5 btn-gradient text-white font-bold rounded-xl text-xs transition">Apply Videos 🎬</button>
+                <button onclick="closeVideoBatchModal()" class="px-4 py-2.5 bg-stone-200 text-stone-700 font-bold rounded-xl text-xs hover:bg-stone-300 transition">Cancel</button>
             </div>
         </div>
     </div>
 
     <!-- ================= MESSAGE BOX MODAL ================= -->
-    <div id="message-modal" class="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 hidden">
-        <div
-            class="bg-[#FFF5EE] text-[#4a1520] w-full max-w-xs p-5 rounded-2xl shadow-2xl text-center space-y-3 border-2 border-pink-300">
+    <div id="message-modal" class="fixed inset-0 bg-black/75 z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-[#FFF5EE] text-[#4a1520] w-full max-w-xs p-5 rounded-2xl shadow-2xl text-center space-y-3 border-2 border-pink-300">
             <div id="modal-icon" class="text-3xl">💖</div>
             <p id="modal-text" class="text-xs font-semibold text-stone-800"></p>
-            <button onclick="closeMessageModal()"
-                class="w-full py-2 bg-[#721422] text-white font-bold rounded-xl text-xs hover:bg-[#8b2332] transition">OK</button>
+            <button onclick="closeMessageModal()" class="w-full py-2 btn-gradient text-white font-bold rounded-xl text-xs transition">OK</button>
         </div>
     </div>
 
@@ -546,12 +502,12 @@
 
             if (tab === 'photos') {
                 btnPhotos.className = "px-5 py-1.5 bg-white text-[#721422] rounded-full font-bold text-xs shadow-md transition transform scale-105";
-                btnVideos.className = "px-5 py-1.5 bg-[#8b2332] text-pink-200 border border-pink-400/40 rounded-full font-bold text-xs shadow hover:bg-pink-600/40 transition";
+                btnVideos.className = "px-5 py-1.5 bg-rose-900/80 text-pink-200 border border-pink-400/40 rounded-full font-bold text-xs shadow hover:bg-rose-800 transition";
                 viewPhotos.classList.remove('hidden');
                 viewVideos.classList.add('hidden');
             } else {
                 btnVideos.className = "px-5 py-1.5 bg-white text-[#721422] rounded-full font-bold text-xs shadow-md transition transform scale-105";
-                btnPhotos.className = "px-5 py-1.5 bg-[#8b2332] text-pink-200 border border-pink-400/40 rounded-full font-bold text-xs shadow hover:bg-pink-600/40 transition";
+                btnPhotos.className = "px-5 py-1.5 bg-rose-900/80 text-pink-200 border border-pink-400/40 rounded-full font-bold text-xs shadow hover:bg-rose-800 transition";
                 viewVideos.classList.remove('hidden');
                 viewPhotos.classList.add('hidden');
             }
@@ -574,18 +530,10 @@
             "images/21.jpeg", "images/22.jpeg", "images/23.jpeg", "images/24.jpeg", "images/25.jpeg"
         ];
 
-        // 10 Video Sources Array (Manually place paths here e.g. "videos/v1.mp4", or leave blank to upload dynamically)
+        // 10 Video Sources Array
         const videoSources = [
-            "videos/video1.mp4",
-            "videos/video2.mp4",
-            "videos/video3.mp4",
-            "videos/video4.mp4",
-            "videos/video5.mp4",
-            "videos/video6.mp4",
-            "videos/video7.mp4",
-            "videos/video8.mp4",
-            "videos/video9.mp4",
-            "videos/video10.mp4"
+            "videos/video1.mp4", "videos/video2.mp4", "videos/video3.mp4", "videos/video4.mp4", "videos/video5.mp4",
+            "videos/video6.mp4", "videos/video7.mp4", "videos/video8.mp4", "videos/video9.mp4", "videos/video10.mp4"
         ];
         const videoCaptions = [
             "Our Favorite Memory #1 🎬", "Best Trip Ever #2 ✨", "Crying & Laughing #3 😂",
@@ -644,7 +592,7 @@
                         </div>
                         <div class="w-full flex items-center justify-between mt-2 px-1">
                             <span class="font-handwriting text-xs font-bold text-[#721422] truncate">${vCap}</span>
-                            <label class="bg-pink-600 hover:bg-pink-700 text-white text-[10px] font-bold px-2 py-1 rounded cursor-pointer shadow">
+                            <label class="btn-gradient text-white text-[10px] font-bold px-2.5 py-1 rounded-lg cursor-pointer shadow">
                                 Upload 🎥
                                 <input type="file" accept="video/*" class="hidden" onchange="uploadSingleVideo(event, ${i})">
                             </label>
@@ -760,13 +708,13 @@
             initGallery();
             initVideoGallery();
             const container = document.getElementById('particles');
-            const particleCount = 15;
-            const symbols = ['✨', '💖', '⭐', '🌸'];
+            const particleCount = 20;
+            const symbols = ['✨', '💖', '⭐', '🌸', '💫'];
 
             if (container) {
                 for (let i = 0; i < particleCount; i++) {
                     const span = document.createElement('span');
-                    span.className = 'absolute text-xs opacity-20 animate-float';
+                    span.className = 'absolute text-sm opacity-30 animate-float';
                     span.innerText = symbols[Math.floor(Math.random() * symbols.length)];
                     span.style.left = Math.random() * 100 + '%';
                     span.style.top = Math.random() * 100 + '%';
